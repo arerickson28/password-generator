@@ -46,66 +46,101 @@ generateBtn.addEventListener("click", writePassword);
 // ------------------------------------------------------------
 // End Starter Code
 // ------------------------------------------------------------
+// ------------------------------------------------------------
 // My Code Start
 // ------------------------------------------------------------
 
-// TODO: Present series of prompts
+// Present Prompts
 function generatePassword() {
   //prompt for character length
+  console.log("sending to charLen") ;
   let prompt1 = charLen() ;
-  console.log(prompt1)
+  console.log(prompt1 + " is the password") ;
+ 
   //prompt for special characters
   // let prompt2 = specialChar() ;
+  //funtion to generate password
+
+  console.log("printing password: " + prompt1) ;
   passWord = prompt1 ;
   return passWord
-
 }
-
+// ------------------------------------------------------------
 // Function to choose character length
+// ------------------------------------------------------------
 function charLen() {
-  let chooseLen = parseInt(prompt("Choose character length of password", "Enter a number between 8 and 128")) ;
+  // console.log("charLen triggered") ;
+  let chosenLen = parseInt(prompt("Choose character length of password", "Enter a number between 8 and 128")) ;
 
-  console.log(chooseLen) ;
-  
+  console.log("Entered: " + chosenLen) ;
+  console.log("sending " + chosenLen + " to checkValidNum") ;
   // validate legitamite number
-  chosenLength = checkValidtNum(chooseLen) ;
-  console.log(chosenLength) ;
+  let legitNum = checkValidNum(chosenLen) ;
+  console.log(legitNum + " is a number") ;
   // validate length
-  // characterLength = checkCharLength() ;
+  console.log("sending " + legitNum + " to isLongEnough") ;
+  let longEnough = isLongEnough(legitNum) ;
+  console.log(longEnough + " is appropriate length") ;
+  console.log("returning " + longEnough + " to generatePassword") ;
 
-  return chosenLength
-
+  return longEnough
 }
-
-
-function checkValidNum(chosenLength) {
-  if (isNaN(chosenLength) === true ) {
-      
-    console.log(chooseLen + " not acceptable") ;
-
-    returnTocharLen() ;
+// ------------------------------------------------------------
+// Function to validate if chosen character length is a number and not letters
+// ------------------------------------------------------------
+function checkValidNum(entry) {
+  console.log(entry + " is NaN?: " + isNaN(entry)) ;
+  if (isNaN(entry) === false ) {
+    
+    console.log(entry + " is acceptable") ;
+    console.log("returning " + entry + " to charLen") ;
+    return entry
+    // console.log("sending entry to isLongEnough") ;
+    // validEntry = isLongEnough(entry) ;
+    // return validEntry 
 
   } else {
-    console.log("else") ;
-    return chosenLength
+    console.log(entry + " not acceptable") ;
+    console.log("discarding " + entry) ;
+    console.log("sending to returnToCharLen") ;
+    returnTocharLen() ;
+  }
+}
+  // ------------------------------------------------------------
+  // Function to validate if chosen character length is between 8 and 128 characters
+  // ------------------------------------------------------------
+function isLongEnough(charLen) {
+  console.log("is long enough triggered") ;
+  if (charLen >= 8 && charLen <= 128) {
+    console.log(charLen + " is acceptable") ;
+    console.log("returning " + charLen + " to charLen")
+    // console.log("returning " + charLen + " to checkValidNum") ;
+    return charLen
+  } else {
+    console.log("not acceptable: " + charLen + " is either to short or too long") ;
+    console.log("send to returnTocharLen") ;
+    returnTocharLen()
   }
 }
 
-
-
-// Function to give aleart and bounce back to charLen()
+// ------------------------------------------------------------
+// Function to give alert to re-enter value as a number between 8 and 128 (no letters)
+// ------------------------------------------------------------
 function returnTocharLen() {
-  alert("Please enter a numeric value") ;
-  charLen() ;
+  alert("Error: Entry needs to be a numeric value between 8 and 128. Try again.") ;
+  console.log("returning to charLen") ;
+  charLen()
 }
-
-  
-
+// ------------------------------------------------------------
 
 
 
 
+
+
+
+
+// ------------------------------------------------------------
 // ------------------------------------------------------------
 // My Code End
 // ------------------------------------------------------------
-
