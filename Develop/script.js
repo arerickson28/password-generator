@@ -71,7 +71,7 @@ function generatePassword() {
 function charLen() {
   // console.log("charLen triggered") ;
   let chosenLen = parseInt(prompt("Choose character length of password", "Enter a number between 8 and 128")) ;
-
+  
   console.log("Entered: " + chosenLen) ;
   console.log("sending " + chosenLen + " to checkValidNum") ;
   // validate legitamite number

@@ -18,7 +18,8 @@ Web Dev JS assignment
 
 # Prompt 2 for special characters
 --Option, a yes/no prompt for each: upper, lower, number, special (convert response to lower)  
---Option, one prompt then use "check if contains" upper, lower, number, special (convert response to lower)  
+--Option, one prompt then use "check if contains" upper, lower, number, special (convert response to lower) 
+--Convert to boolean 
 --Append answer to a list (four values in list, yes/no for each of the four choices)  
 
 

@@ -54,6 +54,13 @@ let prompt1 ;
 let prompt2 ;
 let passWord ;
 
+let isUpper ;
+let isLower ;
+let isNumer ;
+let isSpec ;
+
+let charCategor = [] ;
+
 let lowerCase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"] ;
 
 let upperCase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"] ;
@@ -62,10 +69,15 @@ let numerical = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"] ;
 
 let special = ["!", "@", "#", "$", "%", "^", "&", "*", "?"] ;
 
+
+lowerListLength = lowerCase.length ;
+upperListLength = upperCase.length ;
+numberListLength = numerical.length ;
+specialListLength = special.length ;
+
 // ------------------------------------------------------------
 // Functions 
 // ------------------------------------------------------------
-
 
 function generatePassword () {
   prompt1 = getPrompt1() ;
@@ -74,23 +86,52 @@ function generatePassword () {
   // return passWord
   return prompt1
 }
-
+// Getting prompt 1
 function getPrompt1() {
-  getEntry() ;
-  validateNumber() ;
-  isLongEnough() ;
-  submitPrompt() ;
-}
+  // getEntry
+  // validateNumber
+  // isLongEnough
 
+  // return submitPrompt ;
+}
+// Getting Prompt 2
 function getPrompt2(){
-  getCharCat() ;
+  getCharCategor() ;
 }
 
+function getCharCategor() {
+  
+  charCategor = [] ;
+  
+  isLower = toLowerCase(prompt()) ;
+  isUpper = toLowerCase(prompt()) ;
+  isNumer = toLowerCase(prompt()) ;
+  isSpec = toLowerCase(prompt()) ;
 
+  charPromptResults = [isLower, isUpper, isNumber, isSpec] ;
 
+  for(var i in charPromptResults) {
+    if (i == "true") {
+      i = true ;
+    }
+  }
 
+  for (var i in charPromptResults) {
+    if (i == true) {
+      charCategor.push(i) ;
+    }
+  }
 
+  // charCategor.push(isLower, isUpper, isNumer, isSpec) ;
+  
+  return charCategor
 
-// ------------------------------------------------------------
-// My Code Start
-// ------------------------------------------------------------
+}
+
+//Making Password
+function makePassword(){
+  lowerLength
+  upperLength
+  numberLength
+  specialLength
+}
